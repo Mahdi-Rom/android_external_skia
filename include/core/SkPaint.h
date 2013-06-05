@@ -17,6 +17,7 @@
 #ifdef SK_BUILD_FOR_ANDROID
 #include <pthread.h>
 #include "SkLanguage.h"
+#include "SkPaintOptionsAndroid.h"
 #endif
 
 class SkAnnotation;
@@ -915,6 +916,9 @@ public:
     /** Returns the base glyph count for the strike associated with this paint
     */
     unsigned getBaseGlyphCount(SkUnichar text) const;
+
+    SkPaintOptionsAndroid& getPaintOptionsAndroid() { return *(SkPaintOptionsAndroid*)0; }
+    void setPaintOptionsAndroid(const SkPaintOptionsAndroid& options) {}
 #endif
 
     // returns true if the paint's settings (e.g. xfermode + alpha) resolve to

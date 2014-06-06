@@ -527,13 +527,13 @@ LOCAL_SRC_FILES += \
 	src/opts/memset32_neon.S \
 	src/opts/SkBitmapProcState_arm_neon.cpp \
 	src/opts/SkBitmapProcState_matrixProcs_neon.cpp \
-	src/opts/ext/S32_Opaque_D32_filter_DX_shaderproc_neon.cpp \
-        src/core/asm/SkBlitter_RGB16_NEON.S \
 	src/opts/SkBlitMask_opts_arm_neon.cpp \
 	src/opts/SkBlitRow_opts_arm_neon.cpp \
 	src/opts/SkBlurImage_opts_neon.cpp \
 	src/opts/SkMorphology_opts_neon.cpp \
-	src/opts/SkXfermode_opts_arm_neon.cpp
+	src/opts/SkXfermode_opts_arm_neon.cpp \
+	src/opts/ext/S32_Opaque_D32_filter_DX_shaderproc_neon.cpp \
+    src/core/asm/SkBlitter_RGB16_NEON.S
 endif
 
 LOCAL_SRC_FILES += \
@@ -575,9 +575,9 @@ LOCAL_STATIC_LIBRARIES := \
 	libwebp-encode
 
 ifeq ($(call is-vendor-board-platform,QCOM),true)
-ifeq ($(WITH_QC_PERF),true)
-	LOCAL_WHOLE_STATIC_LIBRARIES += libqc-skia
-endif
+#ifeq ($(WITH_QC_PERF),true)
+#	LOCAL_WHOLE_STATIC_LIBRARIES += libqc-skia
+#endif
 endif
 
 LOCAL_C_INCLUDES := \

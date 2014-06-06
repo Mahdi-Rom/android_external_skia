@@ -291,6 +291,11 @@ static bool validate_alphaType(SkBitmap::Config config, SkAlphaType alphaType,
     return true;
 }
 
+extern "C" void _ZN8SkBitmap9setConfigENS_6ConfigEiii(SkBitmap *bitmap,
+        SkBitmap::Config c, int width, int height, int rowBytes) {
+    bitmap->setConfig(c, width, height, (size_t) rowBytes);
+}
+
 bool SkBitmap::setConfig(Config config, int width, int height, size_t rowBytes,
                          SkAlphaType alphaType) {
     if ((width | height) < 0) {

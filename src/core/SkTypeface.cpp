@@ -98,6 +98,7 @@ void SkTypeface::ClearCache() {
     for(unsigned int i=0; i < FONT_STYLE_COUNT; i++) {
        if (gDefaultTypefaces[i] != NULL) {
            gDefaultTypefaces[i]->unref();
+           gDefaultTypefaces[i] = NULL;
        }
    }
 }
